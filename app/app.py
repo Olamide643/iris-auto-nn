@@ -9,6 +9,7 @@ model = tf.keras.models.load_model("./iris_nn_model.h5", compile = False)
 scaler = joblib.load("./iris_scaler.pkl")
 class_names = joblib.load("./class_names.pkl")
 
+print("Yes")
 app = Flask(__name__)
 
 @app.route("/")
@@ -36,4 +37,4 @@ def predict():
         return jsonify({"error": str(e)})
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)
+    app.run(debug=True)
